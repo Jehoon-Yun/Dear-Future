@@ -716,7 +716,7 @@ body.motif-off .phase svg{ filter:none; }
 @media (max-width:680px){ .ba{ grid-template-columns:1fr; } .ba__arrow{ transform:rotate(90deg); justify-self:start; } }
 .ba__cell{ border-radius:14px; padding:16px 18px; font-size:14.5px; line-height:1.6; }
 .ba__cell.no{ background:rgba(194,85,122,.07); border:1px solid rgba(194,85,122,.2); color:var(--c-stone); }
-.ba__cell.yes{ background:rgba(31,138,91,.07); border:1px solid rgba(31,138,91,.22); color:var(--c-indigo); }
+.ba__cell.yes{ background:rgba(31,138,91,.07); border:1px solid rgba(31,138,91,.22); color:var(--c-stone); }
 .ba__cell small{ display:block; font-family:var(--font-display); font-style:italic; font-size:11px; letter-spacing:.05em; text-transform:uppercase; margin-bottom:7px; }
 .ba__cell.no small{ color:#C2557A; } .ba__cell.yes small{ color:#1F8A5B; }
 .ba__arrow{ align-self:center; color:var(--c-mauve); font-size:20px; }
