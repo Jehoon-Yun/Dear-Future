@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<div style="display:inline-flex;flex:none;line-height:0;">{{ el }}</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:160,&quot;height&quot;:160},&quot;size&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:80},&quot;variant&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;full&quot;,&quot;monoInk&quot;,&quot;monoCream&quot;,&quot;inkLine&quot;],&quot;default&quot;:&quot;full&quot;}}">
+class Component extends DCLogic {
+  _uid = (Math.floor(Math.random()*1e6));
+  C = {
+    full:    { body:'#2E2A57', bodyLight:'#3b3770', rim:'#B8945A', moon:'#C9A86A', deboss:'rgba(8,6,26,0.42)' },
+    monoInk: { body:'#232A52', bodyLight:'#2b3463', rim:'#F5EEDF', moon:'#F5EEDF', deboss:'rgba(245,238,223,0.16)' },
+    monoCream:{ body:'none',   bodyLight:'none',    rim:'#F5EEDF', moon:'#F5EEDF', deboss:'rgba(245,238,223,0.25)' },
+    inkLine: { body:'none',    bodyLight:'none',    rim:'#232A52', moon:'#232A52', deboss:'rgba(35,42,82,0.25)' }
+  };
+  smooth(pts){
+    const n=pts.length; let d=`M${pts[0][0].toFixed(2)},${pts[0][1].toFixed(2)}`;
+    for(let i=0;i<n;i++){
+      const p0=pts[(i-1+n)%n],p1=pts[i],p2=pts[(i+1)%n],p3=pts[(i+2)%n];
+      const c1x=p1[0]+(p2[0]-p0[0])/6, c1y=p1[1]+(p2[1]-p0[1])/6;
+      const c2x=p2[0]-(p3[0]-p1[0])/6, c2y=p2[1]-(p3[1]-p1[1])/6;
+      d+=`C${c1x.toFixed(2)},${c1y.toFixed(2)} ${c2x.toFixed(2)},${c2y.toFixed(2)} ${p2[0].toFixed(2)},${p2[1].toFixed(2)}`;
+    }
+    return d+'Z';
+  }
+  seal(cx,cy,R,c,uid){
+    const pts=[]; let s=(uid*131+17)>>>0;
+    const rnd=()=>{ s=(s*9301+49297)%233280; return s/233280; };
+    const N=30, jit=0.045;
+    for(let i=0;i<N;i++){ const a=i/N*Math.PI*2; const rr=R*(1-jit/2+rnd()*jit); pts.push([cx+Math.cos(a)*rr, cy+Math.sin(a)*rr]); }
+    const blob=this.smooth(pts);
+    const moonR=R*0.40, mcx=cx-R*0.06, mcy=cy-R*0.015, off=moonR*0.80;
+    const hollow=c.body==='none';
+    return `
+      <defs>
+        <radialGradient id="bg${uid}" cx="40%" cy="33%" r="82%"><stop offset="0%" stop-color="${c.bodyLight}"/><stop offset="100%" stop-color="${c.body}"/></radialGradient>
+        <mask id="mn${uid}"><rect x="${cx-R}" y="${cy-R}" width="${2*R}" height="${2*R}" fill="black"/><circle cx="${mcx}" cy="${mcy}" r="${moonR}" fill="white"/><circle cx="${(mcx+off).toFixed(2)}" cy="${(mcy-off*0.22).toFixed(2)}" r="${moonR}" fill="black"/></mask>
+      </defs>
+      <path d="${blob}" ${hollow?`fill="none" stroke="${c.rim}" stroke-width="${(R*0.05).toFixed(2)}"`:`fill="url(#bg${uid})"`}/>
+      ${hollow?'':`<path d="${blob}" fill="none" stroke="rgba(255,255,255,0.10)" stroke-width="1.4" transform="translate(0,-1)"/>`}
+      ${hollow?'':`<circle cx="${cx}" cy="${cy}" r="${(R*0.86).toFixed(2)}" fill="none" stroke="${c.rim}" stroke-width="${(R*0.028).toFixed(2)}" opacity="0.92"/>`}
+      <circle cx="${cx}" cy="${cy}" r="${(R*0.77).toFixed(2)}" fill="none" stroke="${c.deboss}" stroke-width="1" opacity="0.55"/>
+      <rect x="${cx-R}" y="${cy-R}" width="${2*R}" height="${2*R}" fill="${c.moon}" mask="url(#mn${uid})"/>
+      <circle cx="${(cx+R*0.34).toFixed(2)}" cy="${(cy+R*0.40).toFixed(2)}" r="${(R*0.035).toFixed(2)}" fill="${c.moon}" opacity="0.85"/>
+    `;
+  }
+  renderVals(){
+    const px = Number(this.props.size) || 80;
+    const v = this.props.variant || 'full';
+    const c = this.C[v] || this.C.full;
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="${px}" height="${px}" style="display:block">${this.seal(120,120,104,c,this._uid)}</svg>`;
+    return { el: React.createElement('div',{style:{width:px+'px',height:px+'px'},dangerouslySetInnerHTML:{__html:svg}}) };
+  }
+}
+</script>
+</body>
+</html>
