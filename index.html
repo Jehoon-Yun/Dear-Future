@@ -241,6 +241,10 @@
               <span style="font-family:'Pretendard',sans-serif;font-size:clamp(11px,1.4vw,14px);letter-spacing:.6em;color:rgba(30,34,64,.6);margin-top:7px;padding-left:3px;">디어퓨처</span>
             </span>
           </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;align-self:flex-start;">
+            <button onClick="{{ svg_logoFull }}" style="cursor:pointer;font-family:'Pretendard',sans-serif;font-size:12px;font-weight:600;color:#F5EEDF;background:#232A52;border:0;padding:9px 15px;border-radius:3px;transition:background .15s;" style-hover="background:#1E2240;">SVG 다운로드</button>
+            <button onClick="{{ png_logoFull }}" style="cursor:pointer;font-family:'Pretendard',sans-serif;font-size:12px;font-weight:500;color:#232A52;background:transparent;border:1px solid rgba(35,42,82,.35);padding:9px 15px;border-radius:3px;transition:background .15s;" style-hover="background:rgba(35,42,82,.06);">PNG 다운로드</button>
+          </div>
         </div>
 
         <!-- secondary lockups -->
@@ -253,19 +257,37 @@
                 <span style="font-family:'Pretendard',sans-serif;font-size:10px;letter-spacing:.5em;color:rgba(30,34,64,.6);margin-top:6px;">디어퓨처</span>
               </span>
             </div>
-            <span style="font-family:'Pretendard',sans-serif;font-size:11px;letter-spacing:.16em;color:rgba(30,34,64,.55);">세로형 락업</span>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:11px;">
+              <span style="font-family:'Pretendard',sans-serif;font-size:11px;letter-spacing:.16em;color:rgba(30,34,64,.55);">세로형 락업</span>
+              <div style="display:flex;gap:7px;">
+                <button onClick="{{ svg_logoVertical }}" style="cursor:pointer;font-family:'Pretendard',sans-serif;font-size:11px;font-weight:600;color:#F5EEDF;background:#232A52;border:0;padding:7px 12px;border-radius:3px;" style-hover="background:#1E2240;">SVG</button>
+                <button onClick="{{ png_logoVertical }}" style="cursor:pointer;font-family:'Pretendard',sans-serif;font-size:11px;font-weight:500;color:#232A52;background:transparent;border:1px solid rgba(35,42,82,.35);padding:7px 12px;border-radius:3px;" style-hover="background:rgba(35,42,82,.06);">PNG</button>
+              </div>
+            </div>
           </div>
           <div style="background:#F5EEDF;padding:clamp(28px,4vw,44px);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:18px;min-height:230px;">
             <div style="flex:1;display:flex;align-items:center;">
               <span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(30px,4vw,40px);letter-spacing:1.5px;color:#1E2240;">Dear Future</span>
             </div>
-            <span style="font-family:'Pretendard',sans-serif;font-size:11px;letter-spacing:.16em;color:rgba(30,34,64,.55);">워드마크 단독</span>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:11px;">
+              <span style="font-family:'Pretendard',sans-serif;font-size:11px;letter-spacing:.16em;color:rgba(30,34,64,.55);">워드마크 단독</span>
+              <div style="display:flex;gap:7px;">
+                <button onClick="{{ svg_wordmark }}" style="cursor:pointer;font-family:'Pretendard',sans-serif;font-size:11px;font-weight:600;color:#F5EEDF;background:#232A52;border:0;padding:7px 12px;border-radius:3px;" style-hover="background:#1E2240;">SVG</button>
+                <button onClick="{{ png_wordmark }}" style="cursor:pointer;font-family:'Pretendard',sans-serif;font-size:11px;font-weight:500;color:#232A52;background:transparent;border:1px solid rgba(35,42,82,.35);padding:7px 12px;border-radius:3px;" style-hover="background:rgba(35,42,82,.06);">PNG</button>
+              </div>
+            </div>
           </div>
           <div style="background:#F5EEDF;padding:clamp(28px,4vw,44px);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:18px;min-height:230px;">
             <div style="flex:1;display:flex;align-items:center;">
               <dc-import name="Seal" size="96" variant="full" hint-size="96px,96px"></dc-import>
             </div>
-            <span style="font-family:'Pretendard',sans-serif;font-size:11px;letter-spacing:.16em;color:rgba(30,34,64,.55);">심볼 단독 · 밀랍 인장 달</span>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:11px;">
+              <span style="font-family:'Pretendard',sans-serif;font-size:11px;letter-spacing:.16em;color:rgba(30,34,64,.55);">심볼 단독 · 밀랍 인장 달</span>
+              <div style="display:flex;gap:7px;">
+                <button onClick="{{ svg_symbol }}" style="cursor:pointer;font-family:'Pretendard',sans-serif;font-size:11px;font-weight:600;color:#F5EEDF;background:#232A52;border:0;padding:7px 12px;border-radius:3px;" style-hover="background:#1E2240;">SVG</button>
+                <button onClick="{{ png_symbol }}" style="cursor:pointer;font-family:'Pretendard',sans-serif;font-size:11px;font-weight:500;color:#232A52;background:transparent;border:1px solid rgba(35,42,82,.35);padding:7px 12px;border-radius:3px;" style-hover="background:rgba(35,42,82,.06);">PNG</button>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -877,7 +899,7 @@
             <div style="display:flex;flex-wrap:wrap;gap:16px;">
               <div style="flex:1 1 240px;aspect-ratio:1.75/1;background:linear-gradient(168deg,#F7F1E4,#EFE6D2);border:1px solid rgba(35,42,82,.12);border-radius:4px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;">
                 <div style="display:flex;align-items:center;gap:10px;"><dc-import name="Seal" size="40" variant="full" hint-size="40px,40px"></dc-import><span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:#1E2240;">Dear Future</span></div>
-                <div><p style="margin:0;font-family:'Noto Serif KR',serif;font-size:14px;color:#232A52;">김연재 · 콘텐츠 리드</p><p style="margin:3px 0 0;font-family:'Pretendard',sans-serif;font-size:11px;color:rgba(30,34,64,.6);"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cfb6a58fabaaaebda9babbbabdaae1a4bd">[email&#160;protected]</a></p></div>
+                <div><p style="margin:0;font-family:'Noto Serif KR',serif;font-size:14px;color:#232A52;">김연재 · 콘텐츠 리드</p><p style="margin:3px 0 0;font-family:'Pretendard',sans-serif;font-size:11px;color:rgba(30,34,64,.6);">yj@dearfuture.kr</p></div>
               </div>
               <div style="flex:1 1 240px;aspect-ratio:1.75/1;background:#232A52;border-radius:4px;padding:22px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;">
                 <dc-import name="Seal" size="52" variant="monoCream" hint-size="52px,52px"></dc-import>
@@ -896,7 +918,7 @@
                 <p style="margin:0 0 10px;font-family:'Pretendard',sans-serif;font-size:11px;font-weight:600;letter-spacing:.14em;color:#B8945A;text-transform:uppercase;">이메일 서명</p>
                 <div style="display:flex;align-items:center;gap:12px;border-left:2px solid #B8945A;padding-left:14px;">
                   <dc-import name="Seal" size="44" variant="full" hint-size="44px,44px"></dc-import>
-                  <div><p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:17px;color:#1E2240;">Dear Future</p><p style="margin:2px 0 0;font-family:'Pretendard',sans-serif;font-size:11.5px;color:rgba(30,34,64,.65);">김연재 · 콘텐츠 리드<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="077e6d4763626675617273727562296c75">[email&#160;protected]</a> · dearfuture.kr</p></div>
+                  <div><p style="margin:0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:17px;color:#1E2240;">Dear Future</p><p style="margin:2px 0 0;font-family:'Pretendard',sans-serif;font-size:11.5px;color:rgba(30,34,64,.65);">김연재 · 콘텐츠 리드<br>yj@dearfuture.kr · dearfuture.kr</p></div>
                 </div>
               </div>
             </div>
@@ -998,7 +1020,7 @@
   </sc-if>
 </div>
 </x-dc>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script>
+<script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = { active:'cover', toast:null };
   _uid = 0;
@@ -1008,7 +1030,7 @@ class Component extends DCLogic {
     monoInk: { body:'#232A52', bodyLight:'#2b3463', rim:'#F5EEDF', moon:'#F5EEDF', deboss:'rgba(245,238,223,0.16)' },
     monoCream:{ body:'none',   bodyLight:'none',    rim:'#F5EEDF', moon:'#F5EEDF', deboss:'rgba(245,238,223,0.25)' }
   };
-  VB = { symbol:[240,240], profile:[480,480], logoFull:[760,240], logoMonoInk:[760,240], logoMonoCream:[760,240], wordmark:[760,200], og:[1200,630] };
+  VB = { symbol:[240,240], profile:[480,480], logoFull:[760,240], logoVertical:[360,300], logoMonoInk:[760,240], logoMonoCream:[760,240], wordmark:[760,200], og:[1200,630] };
   SECTIONS = [
     {id:'cover',label:'커버'},{id:'story',label:'브랜드 스토리'},{id:'values',label:'가치와 성격'},
     {id:'position',label:'포지셔닝'},{id:'logo',label:'로고 시스템'},{id:'color',label:'컬러'},
@@ -1083,6 +1105,7 @@ class Component extends DCLogic {
       case 'logoMonoInk': return this.seal(120,120,94,this.C.monoInk,904)+this.wordmark(250,146,'#232A52');
       case 'logoMonoCream': return `<rect width="760" height="240" fill="#232A52"/>`+this.seal(120,120,94,this.C.monoCream,905)+this.wordmark(250,146,'#F5EEDF');
       case 'wordmark': return this.wordmark(70,116,'#1E2240');
+      case 'logoVertical': return this.seal(180,92,70,this.C.full,907)+`<text x="180" y="230" text-anchor="middle" font-family="'Cormorant Garamond',Georgia,serif" font-size="58" font-weight="600" letter-spacing="1.5" fill="#1E2240">Dear Future</text><text x="184" y="264" text-anchor="middle" font-family="'Pretendard',sans-serif" font-size="17" letter-spacing="9" fill="#1E2240" opacity="0.7">디어퓨처</text>`;
       case 'og': return this.ogInner();
       default: return '';
     }
@@ -1148,8 +1171,9 @@ class Component extends DCLogic {
     cp.cp_noto=()=>this.copy('Noto Serif KR','Noto Serif KR');
     cp.cp_pret=()=>this.copy('Pretendard','Pretendard');
     const A={};
-    ['logoFull','logoMonoInk','logoMonoCream','wordmark','symbol','profile','og'].forEach(id=>{ A['svg_'+id]=()=>this.downloadSVG(id); });
+    ['logoFull','logoVertical','logoMonoInk','logoMonoCream','wordmark','symbol','profile','og'].forEach(id=>{ A['svg_'+id]=()=>this.downloadSVG(id); });
     A.png_logoFull=()=>this.downloadPNG('logoFull',1600);
+    A.png_logoVertical=()=>this.downloadPNG('logoVertical',1200);
     A.png_logoMonoInk=()=>this.downloadPNG('logoMonoInk',1600);
     A.png_logoMonoCream=()=>this.downloadPNG('logoMonoCream',1600);
     A.png_wordmark=()=>this.downloadPNG('wordmark',1600);
